@@ -1,0 +1,340 @@
+<mujoco model="2SR_v1">
+
+  <default>
+        <geom type="mesh"/>
+  </default>
+
+  <option gravity="0 0 -9.8"/>
+  <option integrator="implicitfast"/>
+
+  <asset>
+    <mesh name="Tierra_mesh" file="Tierra.stl"/>
+
+    <mesh name="Muslo_pierna1_mesh" file="Muslo_pierna1.stl"/>
+    <mesh name="Rodilla_pierna1_mesh" file="Rodilla_pierna1.stl"/>
+    <mesh name="BarraLarga_rodilla_pierna1_mesh" file="BarraLarga_rodilla_pierna1.stl"/>
+    <mesh name="BarraCorta_rodilla_pierna1_mesh" file="BarraCorta_rodilla_pierna1.stl"/>
+    <mesh name="Motor_rodilla_pierna1_mesh" file="Motor_rodilla_pierna1.stl"/>
+    <mesh name="Motor_tobillo_pierna1_mesh" file="Motor_tobillo_pierna1.stl"/>
+    <mesh name="Pantorrilla_pierna1_mesh" file="Pantorrilla_pierna1.stl"/>
+    <mesh name="UnionTobillo_pierna1_mesh" file="UnionTobillo_pierna1.stl"/>
+    <mesh name="Pivote_tobillo_pierna1_mesh" file="Pivote_tobillo_pierna1.stl"/>
+    <mesh name="Tobillo_pierna1_mesh" file="Tobillo_pierna1.stl"/>
+    <mesh name="DedosAtras_pierna1_mesh" file="DedosAtras_pierna1.stl"/>
+    <mesh name="DedosDelante_pierna1_mesh" file="DedosDelante_pierna1.stl"/>
+    <mesh name="Motor1_cadera_pierna1_mesh" file="Motor1_cadera_pierna1.stl"/>
+    <mesh name="Motor2_cadera_pierna1_mesh" file="Motor2_cadera_pierna1.stl"/>
+    <mesh name="Barra1_cadera_lado1_pierna1_mesh" file="Barra1_cadera_lado1_pierna1.stl"/>
+    <mesh name="Barra1_cadera_lado2_pierna1_mesh" file="Barra1_cadera_lado2_pierna1.stl"/>
+    <mesh name="Barra2_cadera_lado1_pierna1_mesh" file="Barra2_cadera_lado1_pierna1.stl"/>
+    <mesh name="Barra2_cadera_lado2_pierna1_mesh" file="Barra2_cadera_lado2_pierna1.stl"/>
+    <mesh name="Pivote_cadera_pierna1_mesh" file="Pivote_cadera_pierna1.stl"/>
+    <mesh name="TrackerRodilla_pierna1_mesh" file="TrackerRodilla_pierna1.stl"/>
+    <mesh name="TrackerCadera_pierna1_mesh" file="TrackerCadera_pierna1.stl"/>
+    <mesh name="TrackerTobillo_pierna1_mesh" file="TrackerTobillo_pierna1.stl"/>
+
+    <mesh name="Muslo_pierna2_mesh" file="Muslo_pierna2.stl"/>
+    <mesh name="Rodilla_pierna2_mesh" file="Rodilla_pierna2.stl"/>
+    <mesh name="BarraLarga_rodilla_pierna2_mesh" file="BarraLarga_rodilla_pierna2.stl"/>
+    <mesh name="BarraCorta_rodilla_pierna2_mesh" file="BarraCorta_rodilla_pierna2.stl"/>
+    <mesh name="Motor_rodilla_pierna2_mesh" file="Motor_rodilla_pierna2.stl"/>
+    <mesh name="Motor_tobillo_pierna2_mesh" file="Motor_tobillo_pierna2.stl"/>
+    <mesh name="Pantorrilla_pierna2_mesh" file="Pantorrilla_pierna2.stl"/>
+    <mesh name="UnionTobillo_pierna2_mesh" file="UnionTobillo_pierna2.stl"/>
+    <mesh name="Pivote_tobillo_pierna2_mesh" file="Pivote_tobillo_pierna2.stl"/>
+    <mesh name="Tobillo_pierna2_mesh" file="Tobillo_pierna2.stl"/>
+    <mesh name="DedosAtras_pierna2_mesh" file="DedosAtras_pierna2.stl"/>
+    <mesh name="DedosDelante_pierna2_mesh" file="DedosDelante_pierna2.stl"/>
+    <mesh name="Motor1_cadera_pierna2_mesh" file="Motor1_cadera_pierna2.stl"/>
+    <mesh name="Motor2_cadera_pierna2_mesh" file="Motor2_cadera_pierna2.stl"/>
+    <mesh name="Barra1_cadera_lado1_pierna2_mesh" file="Barra1_cadera_lado1_pierna2.stl"/>
+    <mesh name="Barra1_cadera_lado2_pierna2_mesh" file="Barra1_cadera_lado2_pierna2.stl"/>
+    <mesh name="Barra2_cadera_lado1_pierna2_mesh" file="Barra2_cadera_lado1_pierna2.stl"/>
+    <mesh name="Barra2_cadera_lado2_pierna2_mesh" file="Barra2_cadera_lado2_pierna2.stl"/>
+    <mesh name="Pivote_cadera_pierna2_mesh" file="Pivote_cadera_pierna2.stl"/>
+    <mesh name="TrackerRodilla_pierna2_mesh" file="TrackerRodilla_pierna2.stl"/>
+    <mesh name="TrackerCadera_pierna2_mesh" file="TrackerCadera_pierna2.stl"/>
+    <mesh name="TrackerTobillo_pierna2_mesh" file="TrackerTobillo_pierna2.stl"/>
+
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="2 2" texuniform="true" reflectance=".2"/>
+
+  </asset>
+
+  <worldbody>
+    <light name="top" pos="0 0 1"/>
+
+
+    
+    <body name="Tierra_body">
+
+      <geom mesh="Tierra_mesh" name="Tierra_geom" rgba="0 1 0 1" mass="0.123"/>
+          <!--<freejoint/> -->
+
+          <body name="TrackerCadera_pierna1_body">
+              <geom mesh="TrackerCadera_pierna1_mesh" name="TrackerCadera_pierna1_geom" rgba="1 1 1 1" solref="0.1 3"/>
+          </body>
+          <body name="TrackerCadera_pierna2_body">
+              <geom mesh="TrackerCadera_pierna2_mesh" name="TrackerCadera_pierna2_geom" rgba="1 1 1 1" solref="0.1 3"/>
+          </body>
+          
+          <body name="Motor1_cadera_pierna1_body">
+            <geom mesh="Motor1_cadera_pierna1_mesh" name="Motor1_cadera_pierna1_geom" rgba="1 1 0 1" mass="0.270"/>
+            <body name="Barra1_cadera_lado1_pierna1_body">
+              <joint name="revolute_barra1_cadera_lado1_pierna1" type="hinge" axis="0.5 0.8660254038 0" pos="-0.129832 0.031474 -0.028759"/>
+              <geom mesh="Barra1_cadera_lado1_pierna1_mesh" name="Barra1_cadera_lado1_pierna1_geom" rgba="1 0 0 1" mass="0.010" solref="0.1 3"/>
+              <body name="Barra2_cadera_lado1_pierna1_body">
+                <joint name="revolute_barra2_cadera_lado1_pierna1" type="hinge" axis="0.5 0.8660254038 0" pos="-0.166503 0.052645 -0.046732"/>
+                <geom mesh="Barra2_cadera_lado1_pierna1_mesh" name="Barra2_cadera_lado1_pierna1_geom" rgba="1 0 0 1" mass="0.011" solref="0.1 3"/>
+              </body>
+            </body>
+          </body>
+          <body name="Motor2_cadera_pierna1_body">
+            <geom mesh="Motor2_cadera_pierna1_mesh" name="Motor2_cadera_pierna1_geom" rgba="1 1 0 1" mass="0.270"/>
+            <body name="Barra1_cadera_lado2_pierna1_body">
+              <joint name="revolute_barra1_cadera_lado2_pierna1" type="hinge" axis="-0.5 0.8660254038 0" pos="-0.06005 0.03153 -0.028759"/>
+              <geom mesh="Barra1_cadera_lado2_pierna1_mesh" name="Barra1_cadera_lado2_pierna1_geom" rgba="1 0 0 1" mass="0.010" solref="0.1 3"/>
+              <body name="Barra2_cadera_lado2_pierna1_body">
+                <joint name="revolute_barra2_cadera_lado2_pierna1" type="hinge" axis="-0.5 0.8660254038 0" pos="-0.023489 0.052638 -0.047027"/>
+                <geom mesh="Barra2_cadera_lado2_pierna1_mesh" name="Barra2_cadera_lado2_pierna1_geom" rgba="1 0 0 1" mass="0.011" solref="0.1 3"/>
+              </body>
+            </body>
+          </body>
+          <body name="Pivote_cadera_pierna1_body">
+            <joint name="ball_pivote_cadera_pierna1" type="ball" pos="-0.09499 0.004541 -0.020"/>
+            <geom mesh="Pivote_cadera_pierna1_mesh" name="Pivote_cadera_pierna1_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+
+          <body name="Motor1_cadera_pierna2_body">
+            <geom mesh="Motor1_cadera_pierna2_mesh" name="Motor1_cadera_pierna2_geom" rgba="1 1 0 1" mass="0.270"/>
+            <body name="Barra1_cadera_lado1_pierna2_body">
+              <joint name="revolute_barra1_cadera_lado1_pierna2" type="hinge" axis="0.5 0.8660254038 0" pos="0.060168 0.031404 -0.028759"/>
+              <geom mesh="Barra1_cadera_lado1_pierna2_mesh" name="Barra1_cadera_lado1_pierna2_geom" rgba="1 0 0 1" mass="0.010" solref="0.1 3"/>
+              <body name="Barra2_cadera_lado1_pierna2_body">
+                <joint name="revolute_barra2_cadera_lado1_pierna2" type="hinge" axis="0.5 0.8660254038 0" pos="0.023497 0.052576 -0.046732"/>
+                <geom mesh="Barra2_cadera_lado1_pierna2_mesh" name="Barra2_cadera_lado1_pierna2_geom" rgba="1 0 0 1" mass="0.011" solref="0.1 3"/>
+              </body>
+            </body>
+          </body>
+          <body name="Motor2_cadera_pierna2_body">
+            <geom mesh="Motor2_cadera_pierna2_mesh" name="Motor2_cadera_pierna2_geom" rgba="1 1 0 1" mass="0.270"/>
+            <body name="Barra1_cadera_lado2_pierna2_body">
+              <joint name="revolute_barra1_cadera_lado2_pierna2" type="hinge" axis="-0.5 0.8660254038 0" pos="0.12995 0.03146 -0.028759"/>
+              <geom mesh="Barra1_cadera_lado2_pierna2_mesh" name="Barra1_cadera_lado2_pierna2_geom" rgba="1 0 0 1" mass="0.010" solref="0.1 3"/>
+              <body name="Barra2_cadera_lado2_pierna2_body">
+                <joint name="revolute_barra2_cadera_lado2_pierna2" type="hinge" axis="-0.5 0.8660254038 0" pos="0.166511 0.052569 -0.047027"/>
+                <geom mesh="Barra2_cadera_lado2_pierna2_mesh" name="Barra2_cadera_lado2_pierna2_geom" rgba="1 0 0 1" mass="0.011" solref="0.1 3"/>
+              </body>
+            </body>
+          </body>
+          <body name="Pivote_cadera_pierna2_body">
+            <joint name="ball_pivote_cadera_pierna2" type="ball" pos="0.09501 0.004471 -0.020"/>
+            <geom mesh="Pivote_cadera_pierna2_mesh" name="Pivote_cadera_pierna2_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+
+    </body>
+
+
+
+
+
+    <body name="Muslo_pierna1_body"> 
+      <geom mesh="Muslo_pierna1_mesh" name="Muslo_pierna1_geom" rgba="0 0 1 1" mass="0.249"/>
+          <freejoint/>
+          <body name="TrackerRodilla_pierna1_body">
+              <geom mesh="TrackerRodilla_pierna1_mesh" name="TrackerRodilla_pierna1_geom" rgba="1 1 1 1" solref="0.1 3"/>
+          </body>
+          <body name="Motor_rodilla_pierna1_body">
+            <geom mesh="Motor_rodilla_pierna1_mesh" name="Motor_rodilla_pierna1_geom" rgba="1 1 0 1" mass="0.270"/>
+          </body>
+          <body name="BarraLarga_rodilla_pierna1_body">
+            <joint name="revolute_barralarga_rodilla_pierna1" type="hinge" axis="1 0 0" range="0 85" pos="-0.093413 -0.010479 -0.213464"/>
+            <geom mesh="BarraLarga_rodilla_pierna1_mesh" name="BarraLarga_rodilla_pierna1_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+          <body name="BarraCorta_rodilla_pierna1_body">
+            <joint name="revolute_barracorta_rodilla_pierna1" type="hinge" axis="1 0 0" range="0 162" pos="-0.094913 0.020629 -0.24052"/>
+            <geom mesh="BarraCorta_rodilla_pierna1_mesh" name="BarraCorta_rodilla_pierna1_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+    </body>
+
+    <body name="Muslo_pierna2_body"> 
+      <geom mesh="Muslo_pierna2_mesh" name="Muslo_pierna2_geom" rgba="0 0 1 1" mass="0.249"/>
+          <freejoint/>
+          <body name="TrackerRodilla_pierna2_body">
+              <geom mesh="TrackerRodilla_pierna2_mesh" name="TrackerRodilla_pierna2_geom" rgba="1 1 1 1" solref="0.1 3"/>
+          </body>
+          <body name="Motor_rodilla_pierna2_body">
+            <geom mesh="Motor_rodilla_pierna2_mesh" name="Motor_rodilla_pierna2_geom" rgba="1 1 0 1" mass="0.270"/>
+          </body>
+          <body name="BarraLarga_rodilla_pierna2_body">
+            <joint name="revolute_barralarga_rodilla_pierna2" type="hinge" axis="1 0 0" range="0 85" pos="0.091703 -0.010548 -0.213464"/>
+            <geom mesh="BarraLarga_rodilla_pierna2_mesh" name="BarraLarga_rodilla_pierna2_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+          <body name="BarraCorta_rodilla_pierna2_body">
+            <joint name="revolute_barracorta_rodilla_pierna2" type="hinge" axis="1 0 0" range="0 162" pos="0.093203 0.020559 -0.24052"/>
+            <geom mesh="BarraCorta_rodilla_pierna2_mesh" name="BarraCorta_rodilla_pierna2_geom" rgba="1 0 0 1" solref="0.1 3"/>
+          </body>
+    </body>
+
+
+
+    <body name="Rodilla_pierna1_body">
+      <freejoint/>
+      <geom mesh="Rodilla_pierna1_mesh" name="Rodilla_pierna1_geom" rgba="0 1 0 1" mass="0.070"/>
+      <body name="Pantorrilla_pierna1_body">
+            <joint name="spring_pierna1" type="slide" stiffness="3063" damping="2"/>
+            <geom mesh="Pantorrilla_pierna1_mesh" name="Pantorrilla_pierna1_geom" rgba="0 0 1 1" mass="0.101" solref="0.04 1"/>
+            
+            <body name="TrackerTobillo_pierna1_body">
+              <geom mesh="TrackerTobillo_pierna1_mesh" name="TrackerTobillo_pierna1_geom" rgba="1 1 1 1" solref="0.1 3"/>
+            </body>
+            
+            <body name="Motor_tobillo_pierna1_body">
+              <geom mesh="Motor_tobillo_pierna1_mesh" name="Motor_tobillo_pierna1_geom" rgba="1 1 0 1" mass="0.270"/>
+            </body>
+            <body name="Tobillo_pierna1_body">
+                <joint name="ball_tobillo_pierna1" type="hinge" axis="1 0 0" pos="-0.094422 0.011515 -0.429785"/>
+                <geom mesh="Tobillo_pierna1_mesh" name="Tobillo_pierna1_geom" rgba="1 0 0 1" mass="0.067" solref="0.04 1"/>
+                <body name="DedosDelante_pierna1_body">
+                  <joint name="revolute_dedosdelante_pierna1" type="hinge" axis="1 0 0" pos="-0.094422 -0.053908 -0.474397"/>
+                  <geom mesh="DedosDelante_pierna1_mesh" name="DedosDelante_pierna1_geom" mass="0.032" rgba="0 1 0 1"/>
+                  <body name="DedosAtras_pierna1_body">
+                    <joint name="revolute_dedosatras_pierna1" type="hinge" axis="1 0 0" pos="-0.083047 -0.042619 -0.493338"/>
+                    <geom mesh="DedosAtras_pierna1_mesh" name="DedosAtras_pierna1_geom" mass="0.053" rgba="0 1 0 1"/>
+                  </body>
+                </body>
+            </body>
+            <body name="UnionTobillo_pierna1_body">
+              <joint name="revolute_uniontobillo_pierna1" type="hinge" axis="1 0 0" range="-18 35" pos="-0.094338 0.008927 -0.38485"/>
+              <geom mesh="UnionTobillo_pierna1_mesh" name="UnionTobillo_pierna1_geom" rgba="1 0 0 1" solref="0.04 1"/>
+              <body name="Pivote_tobillo_pierna1_body">
+                <joint name="ball_pivote_tobillo_pierna1" type="ball" pos="-0.094422 0.047533 -0.400126"/>
+                <geom mesh="Pivote_tobillo_pierna1_mesh" name="Pivote_tobillo_pierna1_geom" rgba="1 0 0 1" solref="0.04 1"/>
+              </body>
+            </body>
+      </body>
+    </body>
+
+    <body name="Rodilla_pierna2_body">
+      <freejoint/>
+      <geom mesh="Rodilla_pierna2_mesh" name="Rodilla_pierna2_geom" rgba="0 1 0 1" mass="0.070"/>
+      <body name="Pantorrilla_pierna2_body">
+            <joint name="spring_pierna2" type="slide" stiffness="3063" damping="2"/>
+            <geom mesh="Pantorrilla_pierna2_mesh" name="Pantorrilla_pierna2_geom" rgba="0 0 1 1" mass="0.101" solref="0.04 1"/>
+
+            <body name="TrackerTobillo_pierna2_body">
+              <geom mesh="TrackerTobillo_pierna2_mesh" name="TrackerTobillo_pierna2_geom" rgba="1 1 1 1" solref="0.1 3"/>
+            </body>
+
+            <body name="Motor_tobillo_pierna2_body">
+              <geom mesh="Motor_tobillo_pierna2_mesh" name="Motor_tobillo_pierna2_geom" rgba="1 1 0 1" mass="0.270"/>
+            </body>
+            <body name="Tobillo_pierna2_body">
+                <joint name="ball_tobillo_pierna2" type="hinge" axis="1 0 0" pos="0.093594 0.011446 -0.429785"/>
+                <geom mesh="Tobillo_pierna2_mesh" name="Tobillo_pierna2_geom" rgba="1 0 0 1" mass="0.067" solref="0.04 1"/>
+                <body name="DedosDelante_pierna2_body">
+                  <joint name="revolute_dedosdelante_pierna2" type="hinge" axis="1 0 0" pos="0.093469 -0.053978 -0.474397"/>
+                  <geom mesh="DedosDelante_pierna2_mesh" name="DedosDelante_pierna2_geom" mass="0.032" rgba="0 1 0 1"/>
+                  <body name="DedosAtras_pierna2_body">
+                    <joint name="revolute_dedosatras_pierna2" type="hinge" axis="1 0 0" pos="0.093469 -0.042692 -0.493268"/>
+                    <geom mesh="DedosAtras_pierna2_mesh" name="DedosAtras_pierna2_geom" mass="0.053" rgba="0 1 0 1"/>
+                  </body>
+                </body>
+            </body>
+            <body name="UnionTobillo_pierna2_body">
+              <joint name="revolute_uniontobillo_pierna2" type="hinge" axis="1 0 0" range="-18 35" pos="0.093678 0.008858 -0.38485"/>
+              <geom mesh="UnionTobillo_pierna2_mesh" name="UnionTobillo_pierna2_geom" rgba="1 0 0 1" solref="0.04 1"/>
+              <body name="Pivote_tobillo_pierna2_body">
+                <joint name="ball_pivote_tobillo_pierna2" type="ball" pos="0.093594 0.047463 -0.400126"/>
+                <geom mesh="Pivote_tobillo_pierna2_mesh" name="Pivote_tobillo_pierna2_geom" rgba="1 0 0 1" solref="0.04 1"/>
+              </body>
+            </body>
+      </body>
+    </body>
+
+
+
+
+  <geom name="floor" type="plane" size="1 1 .01" pos="0 0 -0.6" material="grid"/>
+
+  <camera name="camara_rodilla" mode="targetbodycom" pos="-1.25 -0.5 -0.15" target="Rodilla_pierna1_body"/>
+  
+
+
+
+  </worldbody>
+
+
+
+   <contact>
+
+    <exclude body1="TrackerRodilla_pierna1_body" body2="BarraCorta_rodilla_pierna1_body"/>
+    <exclude body1="TrackerRodilla_pierna1_body" body2="Muslo_pierna1_body"/>
+    <exclude body1="TrackerRodilla_pierna1_body" body2="BarraLarga_rodilla_pierna1_body"/>
+    <exclude body1="TrackerRodilla_pierna1_body" body2="Rodilla_pierna1_body"/>
+    <exclude body1="TrackerTobillo_pierna1_body" body2="Pantorrilla_pierna1_body"/>
+    <exclude body1="TrackerTobillo_pierna1_body" body2="Tobillo_pierna1_body"/>
+    <exclude body1="TrackerCadera_pierna1_body" body2="Tierra_body"/>
+    <exclude body1="TrackerCadera_pierna1_body" body2="Pivote_cadera_pierna1_body"/>
+
+    <exclude body1="TrackerRodilla_pierna2_body" body2="BarraCorta_rodilla_pierna2_body"/>
+    <exclude body1="TrackerRodilla_pierna2_body" body2="Muslo_pierna2_body"/>
+    <exclude body1="TrackerRodilla_pierna2_body" body2="BarraLarga_rodilla_pierna2_body"/>
+    <exclude body1="TrackerRodilla_pierna2_body" body2="Rodilla_pierna2_body"/>
+    <exclude body1="TrackerTobillo_pierna2_body" body2="Pantorrilla_pierna2_body"/>
+    <exclude body1="TrackerTobillo_pierna2_body" body2="Tobillo_pierna2_body"/>
+    <exclude body1="TrackerCadera_pierna2_body" body2="Tierra_body"/>
+    <exclude body1="TrackerCadera_pierna2_body" body2="Pivote_cadera_pierna2_body"/>
+
+
+  </contact>
+
+
+  <equality>
+    <connect name="kinematic_link_barralargarodilla_pierna1" active="true" body1="Rodilla_pierna1_body" body2="BarraLarga_rodilla_pierna1_body" anchor="-0.094813 -0.016605 -0.303256" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_barracortarodilla_pierna1" active="true" body1="Rodilla_pierna1_body" body2="BarraCorta_rodilla_pierna1_body" anchor="-0.094813 0.016982 -0.269668" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+
+    <connect name="kinematic_link_pivotetobillo_pierna1" active="true" body1="Tobillo_pierna1_body" body2="Pivote_tobillo_pierna1_body" anchor="-0.094422 0.051667 -0.441842" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_dedosatras_pierna1" active="true" body1="Tobillo_pierna1_body" body2="DedosAtras_pierna1_body" anchor="-0.092922 0.046672 -0.470018" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+
+    <connect name="kinematic_link_barra2lado1muslo_pierna1" active="true" body1="Barra2_cadera_lado1_pierna1_body" body2="Muslo_pierna1_body" anchor="-0.139322 0.030601 -0.085116" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_barra2lado2muslo_pierna1" active="true" body1="Barra2_cadera_lado2_pierna1_body" body2="Muslo_pierna1_body" anchor="-0.052468 0.030556 -0.083931" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_pivotecaderamuslo_pierna1" active="true" body1="Pivote_cadera_pierna1_body" body2="Muslo_pierna1_body" anchor="-0.094855 -0.004494 -0.084044" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    
+
+    <connect name="kinematic_link_barralargarodilla_pierna2" active="true" body1="Rodilla_pierna2_body" body2="BarraLarga_rodilla_pierna2_body" anchor="0.093203 -0.016675 -0.303256" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_barracortarodilla_pierna2" active="true" body1="Rodilla_pierna2_body" body2="BarraCorta_rodilla_pierna2_body" anchor="0.093203 0.016913 -0.269668" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_pivotetobillo_pierna2" active="true" body1="Tobillo_pierna2_body" body2="Pivote_tobillo_pierna2_body" anchor="0.093594 0.051597 -0.441842" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_dedosatras_pierna2" active="true" body1="Tobillo_pierna2_body" body2="DedosAtras_pierna2_body" anchor="0.093469 0.046599 -0.469948" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_barra2lado1muslo_pierna2" active="true" body1="Barra2_cadera_lado1_pierna2_body" body2="Muslo_pierna2_body" anchor="0.050678 0.030532 -0.085116" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_barra2lado2muslo_pierna2" active="true" body1="Barra2_cadera_lado2_pierna2_body" body2="Muslo_pierna2_body" anchor="0.137532 0.030486 -0.083931" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    <connect name="kinematic_link_pivotecaderamuslo_pierna2" active="true" body1="Pivote_cadera_pierna2_body" body2="Muslo_pierna2_body" anchor="0.095145 -0.004643 -0.084358" solimp="0.95 0.99 0.001" solref="0.005 1"/>
+    
+  </equality>
+
+
+
+  <actuator>
+      <position name="motor_rodilla_pierna1" joint="revolute_barralarga_rodilla_pierna1" ctrlrange="0 1.48" kp="48" kv="0.05" timeconst="0.001" />
+      <position name="motor_tobillo_pierna1" joint="revolute_uniontobillo_pierna1" ctrlrange="-0.31 0.61" kp="2.38" kv="0.05" timeconst="0.001" />
+      <position name="motor1_cadera_pierna1" joint="revolute_barra1_cadera_lado1_pierna1" ctrlrange="-0.95 0.698" kp="12" kv="0.05" timeconst="0.001" /> 
+      <position name="motor2_cadera_pierna1" joint="revolute_barra1_cadera_lado2_pierna1" ctrlrange="-0.698 0.95" kp="12" kv="0.05" timeconst="0.001" />
+
+      <position name="motor_rodilla_pierna2" joint="revolute_barralarga_rodilla_pierna2" ctrlrange="0 1.48" kp="48" kv="0.05" timeconst="0.001" />
+      <position name="motor_tobillo_pierna2" joint="revolute_uniontobillo_pierna2" ctrlrange="-0.31 0.61" kp="2.38" kv="0.05" timeconst="0.001" />
+      <position name="motor1_cadera_pierna2" joint="revolute_barra1_cadera_lado1_pierna2" ctrlrange="-0.95 0.698" kp="12" kv="0.05" timeconst="0.001" /> 
+      <position name="motor2_cadera_pierna2" joint="revolute_barra1_cadera_lado2_pierna2" ctrlrange="-0.698 0.95" kp="12" kv="0.05" timeconst="0.001" />
+       
+  </actuator>
+
+  <sensor>
+    <framepos objtype="body" objname="TrackerRodilla_pierna1_body"/>
+    <framelinvel objtype="body" objname="TrackerRodilla_pierna1_body"/>
+    <frameangvel objtype="body" objname="TrackerRodilla_pierna1_body"/>
+
+    <framepos objtype="body" objname="TrackerRodilla_pierna2_body"/>
+    <framelinvel objtype="body" objname="TrackerRodilla_pierna2_body"/>
+    <frameangvel objtype="body" objname="TrackerRodilla_pierna2_body"/>
+  </sensor>
+
+</mujoco>
